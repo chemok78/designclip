@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Clip</th>
       <th>Description</th>
       <th>User</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @clips.each do |clip| %>
       <tr>
+        <td><%= image_tag clip.image.url(:medium) %></td>
         <td><%= clip.description %></td>
         <td><%= clip.user.email if clip.user %></td>
         <td><%= link_to 'Show', clip %></td>
