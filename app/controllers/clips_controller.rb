@@ -6,7 +6,7 @@ class ClipsController < ApplicationController
   
   
   def index
-    @clips = Clip.all.order("created_at DESC") # use Active Record methods, can change them
+    @clips = Clip.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8) # use Active Record methods, can change them
   end
 
   def show
