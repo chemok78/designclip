@@ -1,16 +1,27 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
 <div id="clips" class="transitions-enabled">
 <% @clips.each do |clip| %>
   <div class="box panel panel-default">
-    <%= image_tag clip.image.url(:medium) %>
+    <%= link_to image_tag(clip.image.url(:medium)), clip %>
     <div class="panel-body">
-      <%= clip.description %>
-      <%= clip.user.email if clip.user %>
-      <%= link_to 'Show', clip %>
+      <%= clip.description %></br>
+      <strong><%= clip.user.email if clip.user %></strong>
+      
       <% if clip.user == current_user %>
-        <%= link_to 'Edit', edit_clip_path(clip) %>
-        <%= link_to 'Destroy', clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <div class="actions">
+        <%= link_to edit_clip_path(clip) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          Edit
+        <% end %>
+        <%= link_to clip, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Delete
+        <% end %>
+       </div>
       <% end %>
     </div>
   </div>
     <% end %>
 </div>
+
