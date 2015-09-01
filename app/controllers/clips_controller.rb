@@ -2,7 +2,9 @@ class ClipsController < ApplicationController
   before_action :set_clip, only: [:show, :edit, :update, :destroy] #before do the action, find clip by params ID and set it to @clip (new and create already setting it with the action)
   before_action :authenticate_user!, except: [:index, :show] #only index and show Clip can be seen withouth authenticate
   before_action :correct_user, only: [:edit, :update, :destroy] # see if @clip belongs to user by finding the user belonging to it directly in database
-
+  
+  
+  
   def index
     @clips = Clip.all
   end
