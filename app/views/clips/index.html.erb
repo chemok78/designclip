@@ -6,7 +6,7 @@
     <%= link_to image_tag(clip.image.url(:medium)), clip %>
     <div class="panel-body">
       <%= clip.description %></br>
-      <strong><%= clip.user.email if clip.user %></strong>
+      <strong><%= clip.user.name if clip.user %></strong>
       
       <% if clip.user == current_user %>
        <div class="actions">

@@ -8,7 +8,7 @@
       </div>
       <div class="panel-body">
         <p><%= @clip.description %></p>
-        <p><strong><%= @clip.user.email if @clip.user %></strong></p>
+        <p><strong><%= @clip.user.name if @clip.user %></strong></p>
         <% if @clip.user == current_user %>
           <%= link_to edit_clip_path(@clip) do %>
             <span class="glyphicon glyphicon-edit"></span>
